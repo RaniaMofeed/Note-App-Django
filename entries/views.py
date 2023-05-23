@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
+
+from entries.form import EntryForm
 from .models import Entry
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
@@ -28,6 +30,8 @@ class EntryCreateView(LockedView, SuccessMessageMixin, CreateView):
     fields = ["title", "content"]
     success_url = reverse_lazy("entry-list")
     success_message = "Your new entry was created!"
+    form_class=EntryForm
+    fields=None
 
 
 class EntryUpdateView(LockedView, SuccessMessageMixin, UpdateView):

@@ -1,10 +1,13 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 class Entry(models.Model):
     title=models.CharField(max_length=20)
     content=models.TextField()
     date_created=models.DateTimeField(default=timezone.now)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
 #Dunder Methods---> the method that start with a double under score(__)
 #anther name for this function is "magic methods"
     def __str__(self):
@@ -14,7 +17,6 @@ class Entry(models.Model):
         verbose_name_plural = "Entries"
 
 
-    
 
 
 
