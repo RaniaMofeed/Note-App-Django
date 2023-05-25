@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Singnup"class="boxed-btn3 w-100">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+
+
+{% endblock %}

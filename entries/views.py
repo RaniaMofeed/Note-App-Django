@@ -29,9 +29,9 @@ class EntryCreateView(LockedView, SuccessMessageMixin, CreateView):
     model=Entry
     fields = ["title", "content"]
     success_url = reverse_lazy("entry-list")
-    success_message = "Your new entry was created!"
-    form_class=EntryForm
-    fields=None
+    # success_message = "Your new entry was created!"
+    # form_class=EntryForm
+    # fields=None
 
 
 class EntryUpdateView(LockedView, SuccessMessageMixin, UpdateView):
